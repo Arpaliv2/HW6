@@ -1,0 +1,17 @@
+{% extends 'flatpages/default.html' %}
+
+{% load custom_filter %}
+
+{% block title %}
+Новости
+{% endblock title %}
+
+{% block content %}
+<h1>Новости</h1>
+{% for news in news_all %}
+    <tr><h2>{{ news.heading | bw_filter }}</h2></tr>
+    <tr><h6>{{ news.time_of_addition }}</h6></tr>
+    <tr><h4>{{ news.text| bw_filter | truncatechars:20 }}</h4></tr>
+    <tr><h1>-----</h1></tr>
+{% endfor %}
+{% endblock content %}
